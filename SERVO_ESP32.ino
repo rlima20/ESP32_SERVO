@@ -1,22 +1,22 @@
 #include <Servo.h>
 
-Servo myservo;
-int pos = 0;
+Servo myservoBase;
+int posMyServoBase = 0;
 
-Servo myservo2;
-int pos2 = 0;
+Servo myservoFirst;
+int posMyServoFirst = 0;
 
-Servo myservo3;
-int pos3 = 0;
+Servo myservoSecond;
+int posMyServoSecond = 0;
 
 void setup() {
-  myservo.attach(13);
-  myservo2.attach(12);
-  myservo3.attach(14);
+  myservoBase.attach(13);
+  myservoFirst.attach(12);
+  myservoSecond.attach(14);
   
-  myservo.write(90);
-  myservo2.write(30);
-  myservo3.write(90);
+  myservoBase.write(90);
+  myservoFirst.write(30);
+  myservoSecond.write(90);
   delay(2000);
   }
 
@@ -31,57 +31,57 @@ void loop() {
 
 void motor1(){
   //Vai do meio para o final
-  for (pos = 90; pos <= 180; pos += 1) {
-    myservo.write(pos);              
+  for (posMyServoBase = 90; posMyServoBase <= 180; posMyServoBase += 1) {
+    myservoBase.write(posMyServoBase);              
     delay(20);                       
   }
   delay(3000);
 
   //Vai do final para o começo
-  for (pos = 180; pos >= 0; pos -= 1) { 
-    myservo.write(pos);              
+  for (posMyServoBase = 180; posMyServoBase >= 0; posMyServoBase -= 1) { 
+    myservoBase.write(posMyServoBase);              
     delay(30);                       
   }
   delay(3000);
 
   //Vai do começo para o final
-  for (pos = 0; pos <= 180; pos += 1) {
-    myservo.write(pos);              
+  for (posMyServoBase = 0; posMyServoBase <= 180; posMyServoBase += 1) {
+    myservoBase.write(posMyServoBase);              
     delay(20);                       
   }
   delay(3000);
 
   //Vai do final para o meio
-  for (pos = 180; pos >= 90; pos -= 1) {
-    myservo.write(pos);              
+  for (posMyServoBase = 180; posMyServoBase >= 90; posMyServoBase -= 1) {
+    myservoBase.write(posMyServoBase);              
     delay(20);                       
   }
   delay(3000);
 }
 
 void motor2(){
-    for (pos2 = 30; pos2 <= 100; pos2 += 1) {
-    myservo2.write(pos2);              
+    for (posMyServoFirst = 30; posMyServoFirst <= 100; posMyServoFirst += 1) {
+    myservoFirst.write(posMyServoFirst);              
     delay(20);                       
   }
   delay(3000);
   
-  for (pos2 = 100; pos2 >= 30; pos2 -= 1) { 
-    myservo2.write(pos2);              
+  for (posMyServoFirst = 100; posMyServoFirst >= 30; posMyServoFirst -= 1) { 
+    myservoFirst.write(posMyServoFirst);              
     delay(20);                       
   }
   delay(3000);
 }
 
 void motor3(){
-    for (pos3 = 90; pos3 <= 140; pos3 += 1) {
-    myservo3.write(pos3);              
+    for (posMyServoSecond = 90; posMyServoSecond <= 140; posMyServoSecond += 1) {
+    myservoSecond.write(posMyServoSecond);              
     delay(20);                       
   }
   delay(3000);
   
-  for (pos3 = 140; pos3 >= 90; pos3 -= 1) { 
-    myservo3.write(pos3);              
+  for (posMyServoSecond = 140; posMyServoSecond >= 90; posMyServoSecond -= 1) { 
+    myservoSecond.write(posMyServoSecond);              
     delay(20);                       
   }
   delay(3000);
