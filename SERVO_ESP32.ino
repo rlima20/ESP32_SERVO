@@ -22,110 +22,78 @@ void setup() {
   myservoWrist.attach(27); 
   myservoHand.attach(26);
 
-  myservoBase.write(90);
-  myservoShoulder.write(90);
-  myservoElbow.write(90);
-  myservoWrist.write(90);
-  myservoHand.write(120);
-  
-  delay(2000);
+  myservoBase.write(0);
+    delay(1500);
+  myservoShoulder.write(60);
+    delay(1500);
+  myservoElbow.write(170);
+    delay(1500);
+  myservoWrist.write(30);
+    delay(1500);
+  myservoHand.write(140);
+    delay(1500);
   }
 
 void loop() {
-  motor1();
-  delay(1000);
-  motor3();
-  delay(1000);
-  motor4();
-  motor5();
+  movimento1();
 }
 
-void motor1(){
-  //Vai do meio para o final
-  for (posMyServoBase = 90; posMyServoBase <= 180; posMyServoBase += 1) {
-    myservoBase.write(posMyServoBase);              
-    delay(20);                       
-  }
-  
-  delay(1000);
-  motor2();
-  delay(3000);
-
-  //Vai do final para o começo
-  for (posMyServoBase = 180; posMyServoBase >= 0; posMyServoBase -= 1) { 
-    myservoBase.write(posMyServoBase);              
-    delay(30);                       
-  }
-  delay(3000);
-
-  //Vai do começo para o final
-  for (posMyServoBase = 0; posMyServoBase <= 180; posMyServoBase += 1) {
-    myservoBase.write(posMyServoBase);              
-    delay(20);                       
-  }
-  delay(3000);
-
-  //Vai do final para o meio
-  for (posMyServoBase = 180; posMyServoBase >= 90; posMyServoBase -= 1) {
-    myservoBase.write(posMyServoBase);              
-    delay(20);                       
-  }
-  delay(3000);
-}
-
-void motor2(){
-    for (posmyservoShoulder = 90; posmyservoShoulder <= 120; posmyservoShoulder += 1) {
+void movimento1(){
+  for (posmyservoShoulder = 60; posmyservoShoulder <= 120; posmyservoShoulder += 1) {
     myservoShoulder.write(posmyservoShoulder);              
     delay(20);                       
   }
-  delay(3000);
+  delay(1000);
+
+  movimento2();
   
-  for (posmyservoShoulder = 120; posmyservoShoulder >= 90; posmyservoShoulder -= 1) { 
+  for (posmyservoShoulder = 120; posmyservoShoulder >= 60; posmyservoShoulder -= 1) { 
     myservoShoulder.write(posmyservoShoulder);              
     delay(20);                       
   }
-  delay(3000);
+  delay(1000);
 }
 
-void motor3(){
-    for (posmyservoElbow = 90; posmyservoElbow <= 140; posmyservoElbow += 1) {
+void movimento2(){
+  for (posmyservoElbow = 170; posmyservoElbow >= 90; posmyservoElbow -= 1) {
     myservoElbow.write(posmyservoElbow);              
     delay(20);                       
   }
-  delay(3000);
+  delay(1000);
   
-  for (posmyservoElbow = 140; posmyservoElbow >= 90; posmyservoElbow -= 1) { 
+  for (posmyservoElbow = 90; posmyservoElbow <= 170; posmyservoElbow += 1) { 
     myservoElbow.write(posmyservoElbow);              
     delay(20);                       
   }
-  delay(3000);
+  delay(1000);
+  movimento3();
 }
 
-void motor4(){
-    for (posmyservoWrist = 90; posmyservoWrist <= 140; posmyservoWrist += 1) {
+void movimento3(){
+   for (posmyservoWrist = 30; posmyservoWrist <= 180; posmyservoWrist += 1) {
     myservoWrist.write(posmyservoWrist);              
     delay(20);                       
   }
-  delay(3000);
+  delay(1000);
   
-  for (posmyservoWrist = 140; posmyservoWrist >= 90; posmyservoWrist -= 1) { 
+  for (posmyservoWrist = 180; posmyservoWrist >= 30; posmyservoWrist -= 1) { 
     myservoWrist.write(posmyservoWrist);              
     delay(20);                       
   }
-  delay(3000);
+  delay(1000);
+  movimento4();
 }
 
-void motor5(){
-    for (posmyservoHand = 120; posmyservoHand <= 150; posmyservoHand += 1) {
+void movimento4(){
+   for (posmyservoHand = 140; posmyservoHand <= 180; posmyservoHand += 1) {
     myservoHand.write(posmyservoHand);              
     delay(20);                       
   }
-  delay(3000);
+  delay(1000);
   
-  for (posmyservoHand = 150; posmyservoHand >= 120; posmyservoHand -= 1) { 
+  for (posmyservoHand = 180; posmyservoHand >= 140; posmyservoHand -= 1) { 
     myservoHand.write(posmyservoHand);              
     delay(20);                       
   }
-  delay(3000);
+  delay(1000); 
 }
-
