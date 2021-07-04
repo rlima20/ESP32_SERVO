@@ -36,7 +36,7 @@ void setup() {
 
 void loop() {
   movimento1();
-  delay(10000);
+  delay(12000);
 }
 
 void movimento1(){
