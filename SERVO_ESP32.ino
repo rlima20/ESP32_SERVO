@@ -3,30 +3,30 @@
 Servo myservoBase;
 int posMyServoBase = 0;
 
-Servo myservoFirst;
-int posMyServoFirst = 0;
+Servo myservoShoulder;
+int posmyservoShoulder = 0;
 
-Servo myservoSecond;
-int posMyServoSecond = 0;
+Servo myservoElbow;
+int posmyservoElbow = 0;
 
-Servo myservoThird;
-int posMyServoThird = 0;
+Servo myservoWrist;
+int posmyservoWrist = 0;
 
-Servo myservoForth;
-int posMyServoForth= 0;
+Servo myservoHand;
+int posmyservoHand= 0;
 
 void setup() {
   myservoBase.attach(13);
-  myservoFirst.attach(12);
-  myservoSecond.attach(14);
-  myservoThird.attach(27); 
-  myservoForth.attach(26);
+  myservoShoulder.attach(12);
+  myservoElbow.attach(14);
+  myservoWrist.attach(27); 
+  myservoHand.attach(26);
 
   myservoBase.write(90);
-  myservoFirst.write(90);
-  myservoSecond.write(90);
-  myservoThird.write(90);
-  myservoForth.write(120);
+  myservoShoulder.write(90);
+  myservoElbow.write(90);
+  myservoWrist.write(90);
+  myservoHand.write(120);
   
   delay(2000);
   }
@@ -74,56 +74,56 @@ void motor1(){
 }
 
 void motor2(){
-    for (posMyServoFirst = 90; posMyServoFirst <= 120; posMyServoFirst += 1) {
-    myservoFirst.write(posMyServoFirst);              
+    for (posmyservoShoulder = 90; posmyservoShoulder <= 120; posmyservoShoulder += 1) {
+    myservoShoulder.write(posmyservoShoulder);              
     delay(20);                       
   }
   delay(3000);
   
-  for (posMyServoFirst = 120; posMyServoFirst >= 90; posMyServoFirst -= 1) { 
-    myservoFirst.write(posMyServoFirst);              
+  for (posmyservoShoulder = 120; posmyservoShoulder >= 90; posmyservoShoulder -= 1) { 
+    myservoShoulder.write(posmyservoShoulder);              
     delay(20);                       
   }
   delay(3000);
 }
 
 void motor3(){
-    for (posMyServoSecond = 90; posMyServoSecond <= 140; posMyServoSecond += 1) {
-    myservoSecond.write(posMyServoSecond);              
+    for (posmyservoElbow = 90; posmyservoElbow <= 140; posmyservoElbow += 1) {
+    myservoElbow.write(posmyservoElbow);              
     delay(20);                       
   }
   delay(3000);
   
-  for (posMyServoSecond = 140; posMyServoSecond >= 90; posMyServoSecond -= 1) { 
-    myservoSecond.write(posMyServoSecond);              
+  for (posmyservoElbow = 140; posmyservoElbow >= 90; posmyservoElbow -= 1) { 
+    myservoElbow.write(posmyservoElbow);              
     delay(20);                       
   }
   delay(3000);
 }
 
 void motor4(){
-    for (posMyServoThird = 90; posMyServoThird <= 140; posMyServoThird += 1) {
-    myservoThird.write(posMyServoThird);              
+    for (posmyservoWrist = 90; posmyservoWrist <= 140; posmyservoWrist += 1) {
+    myservoWrist.write(posmyservoWrist);              
     delay(20);                       
   }
   delay(3000);
   
-  for (posMyServoThird = 140; posMyServoThird >= 90; posMyServoThird -= 1) { 
-    myservoThird.write(posMyServoThird);              
+  for (posmyservoWrist = 140; posmyservoWrist >= 90; posmyservoWrist -= 1) { 
+    myservoWrist.write(posmyservoWrist);              
     delay(20);                       
   }
   delay(3000);
 }
 
 void motor5(){
-    for (posMyServoForth = 120; posMyServoForth <= 150; posMyServoForth += 1) {
-    myservoForth.write(posMyServoForth);              
+    for (posmyservoHand = 120; posmyservoHand <= 150; posmyservoHand += 1) {
+    myservoHand.write(posmyservoHand);              
     delay(20);                       
   }
   delay(3000);
   
-  for (posMyServoForth = 150; posMyServoForth >= 120; posMyServoForth -= 1) { 
-    myservoForth.write(posMyServoForth);              
+  for (posmyservoHand = 150; posmyservoHand >= 120; posmyservoHand -= 1) { 
+    myservoHand.write(posmyservoHand);              
     delay(20);                       
   }
   delay(3000);
