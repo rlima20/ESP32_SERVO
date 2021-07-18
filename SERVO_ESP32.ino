@@ -22,21 +22,21 @@ void setup() {
   myservoWrist.attach(27); 
   myservoHand.attach(26);
 
-  myservoBase.write(0);
+  myservoBase.write(30);//esquerda 180 - direita 0
     delay(1500);
-  myservoShoulder.write(60);
+  myservoShoulder.write(30);//esquerda 180 - direita 0
     delay(1500);
-  myservoElbow.write(170);
+  myservoElbow.write(180);//esquerda 180 - direita 0
     delay(1500);
-  myservoWrist.write(30);
+  myservoWrist.write(20);//esquerda 180 - direita 0
     delay(1500);
-  myservoHand.write(140);
+  myservoHand.write(180);//esquerda 180 - direita 0
     delay(1500);
   }
 
 void loop() {
-  movimento1();
-  delay(12000);
+  
+
 }
 
 void movimento1(){
