@@ -1,6 +1,0 @@
-[submodule "Inbev/sdk-android-specs"]
-	path = Inbev/sdk-android-specs
-	url = https://ab-inbev.visualstudio.com/GHQ_B2B_Delta/_git/sdk-android-specs
-[submodule "Área de Trabalho/Projects ABI/BEESAS-9311/sdk-android-specs"]
-	path = Área de Trabalho/Projects ABI/BEESAS-9311/sdk-android-specs
-	url = https://ab-inbev.visualstudio.com/GHQ_B2B_Delta/_git/sdk-android-specs
