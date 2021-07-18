@@ -23,15 +23,15 @@ void setup() {
   myservoHand.attach(26);
 
 myservoBase.write(30);//esquerda 180 - direita 0
-    delay(1500);
+    delay(1000);
   myservoShoulder.write(30);//esquerda 180 - direita 0
-    delay(1500);
+    delay(1000);
   myservoElbow.write(180);//esquerda 180 - direita 0
-    delay(1500);
+    delay(1000);
   myservoWrist.write(20);//esquerda 180 - direita 0
-    delay(1500);
+    delay(1000);
   myservoHand.write(180);//esquerda 180 - direita 0
-    delay(1500);
+    delay(1000);
   }
 
 void loop() {
@@ -54,14 +54,14 @@ void moveShoulder(){
  for (posmyservoShoulder = 30; posmyservoShoulder <= 120; posmyservoShoulder += 1) {
     myservoShoulder.write(posmyservoShoulder);    
     for (posmyservoElbow = 180; posmyservoElbow >= 90; posmyservoElbow -=1){
-      myservoElbow.write(posmyservoElbow)                
+      myservoElbow.write(posmyservoElbow);                
     }
     delay(15);                       
   }
- for (posMyServoShoulder = 120; posMyServoShoulder >= 30; posMyServoShoulder -= 1) {
-    myservoShoulder.write(posMyServoShoulder);  
+ for (posmyservoShoulder = 120; posmyservoShoulder >= 30; posmyservoShoulder -= 1) {
+    myservoShoulder.write(posmyservoShoulder);  
     for (posmyservoElbow = 90; posmyservoElbow <= 180; posmyservoElbow +=1){
-      myservoElbow.write(posmyservoElbow)                
+      myservoElbow.write(posmyservoElbow);             
     }            
     delay(15);                       
   }
