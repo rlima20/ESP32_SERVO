@@ -1,18 +1,15 @@
 #include <Servo.h>
 
 Servo myservoBase;
-int posMyServoBase = 0;
-
 Servo myservoShoulder;
-int posmyservoShoulder = 0;
-
 Servo myservoElbow;
-int posmyservoElbow = 0;
-
 Servo myservoWrist;
-int posmyservoWrist = 0;
-
 Servo myservoHand;
+
+int posMyServoBase = 0;
+int posmyservoShoulder = 0;
+int posmyservoElbow = 0;
+int posmyservoWrist = 0;
 int posmyservoHand= 0;
 
 void setup() {
@@ -30,43 +27,87 @@ myservoBase.write(30);//esquerda 180 - direita 0
     delay(1000);
   myservoWrist.write(20);//esquerda 180 - direita 0
     delay(1000);
-  myservoHand.write(180);//esquerda 180 - direita 0
+  myservoHand.write(170);//esquerda 180 - direita 0
     delay(1000);
   }
 
 void loop() {
-  moveBase();
+  giraBaseEsquerda(180, 1000);              
+  giraBaseDireita(30, 1000);              
+  moveShoulder(30, 90, 1000);
+  abreGarra(140, 1000);
+  giraPulsoEsquerda(120, 1000);
+  giraPulsoDireita(20, 1000);
+  fechaGarra(175, 1000);
+  abreGarra(140, 1000);
+  giraPulsoEsquerda(120, 1000);
+  moveShoulderToCatch(30, 90, 1000);
+  delay(180000);
 }
 
-void moveBase(){
- for (posMyServoBase = 30; posMyServoBase <= 120; posMyServoBase += 1) {
-    myservoBase.write(posMyServoBase);              
-    delay(15);                       
-  }
- for (posMyServoBase = 120; posMyServoBase >= 30; posMyServoBase -= 1) {
-    myservoBase.write(posMyServoBase);              
-    delay(15);                       
-  }
-  moveShoulder();
+void giraBaseEsquerda(int angulo, int tempo){
+  myservoBase.write(angulo);
+  delay(tempo);
 }
 
-void moveShoulder(){
- for (posmyservoShoulder = 30; posmyservoShoulder <= 120; posmyservoShoulder += 1) {
+void giraBaseDireita(int angulo, int tempo){
+  myservoBase.write(angulo);
+  delay(tempo);
+}
+
+void abreGarra(int angulo, int tempo){
+  myservoHand.write(angulo);
+  delay(tempo);
+}
+
+void fechaGarra(int angulo, int tempo){
+  myservoHand.write(angulo);
+  delay(tempo);
+}
+
+void giraPulsoEsquerda(int angulo, int tempo){
+  myservoWrist.write(angulo);
+  delay(tempo);
+}
+
+void giraPulsoDireita(int angulo, int tempo){
+  myservoWrist.write(angulo);
+  delay(tempo);
+}
+
+void moveShoulder(int posInicial, int posFinal, int tempo){
+ for (posmyservoShoulder = posInicial; posmyservoShoulder <= posFinal; posmyservoShoulder += 1) {
     myservoShoulder.write(posmyservoShoulder);    
-    for (posmyservoElbow = 180; posmyservoElbow >= 90; posmyservoElbow -=1){
+    for (posmyservoElbow = 180; posmyservoElbow >= 130; posmyservoElbow -=1){
       myservoElbow.write(posmyservoElbow);                
     }
-    delay(15);                       
+    delay(30);                       
   }
- for (posmyservoShoulder = 120; posmyservoShoulder >= 30; posmyservoShoulder -= 1) {
-    myservoShoulder.write(posmyservoShoulder);  
-    for (posmyservoElbow = 90; posmyservoElbow <= 180; posmyservoElbow +=1){
-      myservoElbow.write(posmyservoElbow);             
-    }            
-    delay(15);                       
+ for (posmyservoShoulder = posFinal; posmyservoShoulder >= posInicial; posmyservoShoulder -= 1) {
+    myservoShoulder.write(posmyservoShoulder);              
+    delay(30);                       
   }
+    for (posmyservoElbow = 130; posmyservoElbow <= 180; posmyservoElbow +=1){
+      myservoElbow.write(posmyservoElbow);
+      delay(30);             
+    }
+  delay(tempo);
 }
 
+void moveShoulderToCatch(int posInicial, int posFinal, int tempo){
+ for (posmyservoShoulder = posInicial; posmyservoShoulder <= posFinal; posmyservoShoulder += 1) {
+    myservoShoulder.write(posmyservoShoulder);    
+    delay(30);                       
+  }
+  fechaGarra(175, 1000);
+ 
+ for (posmyservoShoulder = posFinal; posmyservoShoulder >= posInicial; posmyservoShoulder -= 1) {
+    myservoShoulder.write(posmyservoShoulder);              
+    delay(30);                       
+  }
+  delay(tempo);
+  giraPulsoDireita(20, 1000);   
+}
 //==============================================================================//
 
 void movimento1(){
