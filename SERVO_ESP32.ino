@@ -19,7 +19,7 @@ void setup() {
   myservoWrist.attach(27); 
   myservoHand.attach(26);
 
-myservoBase.write(30);//esquerda 180 - direita 0
+  myservoBase.write(30);//esquerda 180 - direita 0
     delay(1000);
   myservoShoulder.write(30);//esquerda 180 - direita 0
     delay(1000);
