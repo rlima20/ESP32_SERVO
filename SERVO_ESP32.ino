@@ -1,89 +1,130 @@
 #include <Servo.h>
 
-Servo myservo;
-int pos = 0;
+Servo myservoBase;
+int posMyServoBase = 0;
 
-Servo myservo2;
-int pos2 = 0;
+Servo myservoShoulder;
+int posmyservoShoulder = 0;
 
-Servo myservo3;
-int pos3 = 0;
+Servo myservoElbow;
+int posmyservoElbow = 0;
+
+Servo myservoWrist;
+int posmyservoWrist = 0;
+
+Servo myservoHand;
+int posmyservoHand= 0;
 
 void setup() {
-  myservo.attach(13);
-  myservo2.attach(12);
-  myservo3.attach(14);
-  
-  myservo.write(90);
-  myservo2.write(30);
-  myservo3.write(90);
-  delay(2000);
+  myservoBase.attach(13);
+  myservoShoulder.attach(12);
+  myservoElbow.attach(14);
+  myservoWrist.attach(27); 
+  myservoHand.attach(26);
+
+myservoBase.write(30);//esquerda 180 - direita 0
+    delay(1500);
+  myservoShoulder.write(30);//esquerda 180 - direita 0
+    delay(1500);
+  myservoElbow.write(180);//esquerda 180 - direita 0
+    delay(1500);
+  myservoWrist.write(20);//esquerda 180 - direita 0
+    delay(1500);
+  myservoHand.write(180);//esquerda 180 - direita 0
+    delay(1500);
   }
 
 void loop() {
-  motor1();
-  delay(1000);
-  motor2();
-  delay(1000);
-  motor3();
-  delay(1000);
+  moveBase();
 }
 
-void motor1(){
-  //Vai do meio para o final
-  for (pos = 90; pos <= 180; pos += 1) {
-    myservo.write(pos);              
-    delay(20);                       
+void moveBase(){
+ for (posMyServoBase = 30; posMyServoBase <= 120; posMyServoBase += 1) {
+    myservoBase.write(posMyServoBase);              
+    delay(15);                       
   }
-  delay(3000);
-
-  //Vai do final para o começo
-  for (pos = 180; pos >= 0; pos -= 1) { 
-    myservo.write(pos);              
-    delay(30);                       
+ for (posMyServoBase = 120; posMyServoBase >= 30; posMyServoBase -= 1) {
+    myservoBase.write(posMyServoBase);              
+    delay(15);                       
   }
-  delay(3000);
-
-  //Vai do começo para o final
-  for (pos = 0; pos <= 180; pos += 1) {
-    myservo.write(pos);              
-    delay(20);                       
-  }
-  delay(3000);
-
-  //Vai do final para o meio
-  for (pos = 180; pos >= 90; pos -= 1) {
-    myservo.write(pos);              
-    delay(20);                       
-  }
-  delay(3000);
+  moveShoulder();
 }
 
-void motor2(){
-    for (pos2 = 30; pos2 <= 100; pos2 += 1) {
-    myservo2.write(pos2);              
-    delay(20);                       
+void moveShoulder(){
+ for (posmyservoShoulder = 30; posmyservoShoulder <= 120; posmyservoShoulder += 1) {
+    myservoShoulder.write(posmyservoShoulder);    
+    for (posmyservoElbow = 180; posmyservoElbow >= 90; posmyservoElbow -=1){
+      myservoElbow.write(posmyservoElbow)                
+    }
+    delay(15);                       
   }
-  delay(3000);
+ for (posMyServoShoulder = 120; posMyServoShoulder >= 30; posMyServoShoulder -= 1) {
+    myservoShoulder.write(posMyServoShoulder);  
+    for (posmyservoElbow = 90; posmyservoElbow <= 180; posmyservoElbow +=1){
+      myservoElbow.write(posmyservoElbow)                
+    }            
+    delay(15);                       
+  }
+}
+
+//==============================================================================//
+
+void movimento1(){
+  for (posmyservoShoulder = 60; posmyservoShoulder <= 120; posmyservoShoulder += 1) {
+    myservoShoulder.write(posmyservoShoulder);              
+    delay(25);                       
+  }
+  delay(10000);
+
+  movimento2();
   
-  for (pos2 = 100; pos2 >= 30; pos2 -= 1) { 
-    myservo2.write(pos2);              
-    delay(20);                       
+  for (posmyservoShoulder = 120; posmyservoShoulder >= 60; posmyservoShoulder -= 1) { 
+    myservoShoulder.write(posmyservoShoulder);              
+    delay(25);                       
   }
-  delay(3000);
+  delay(1000);
 }
 
-void motor3(){
-    for (pos3 = 90; pos3 <= 140; pos3 += 1) {
-    myservo3.write(pos3);              
-    delay(20);                       
+void movimento2(){
+  for (posmyservoElbow = 170; posmyservoElbow >= 0; posmyservoElbow -= 1) {
+    myservoElbow.write(posmyservoElbow);              
+    delay(25);                       
   }
-  delay(3000);
+  delay(1000);
   
-  for (pos3 = 140; pos3 >= 90; pos3 -= 1) { 
-    myservo3.write(pos3);              
-    delay(20);                       
+  for (posmyservoElbow = 0; posmyservoElbow <= 170; posmyservoElbow += 1) { 
+    myservoElbow.write(posmyservoElbow);              
+    delay(25);                       
   }
-  delay(3000);
+  delay(10000);
+  movimento3();
 }
 
+void movimento3(){
+   for (posmyservoWrist = 30; posmyservoWrist <= 180; posmyservoWrist += 1) {
+    myservoWrist.write(posmyservoWrist);              
+    delay(25);                       
+  }
+  delay(1000);
+  
+  for (posmyservoWrist = 180; posmyservoWrist >= 30; posmyservoWrist -= 1) { 
+    myservoWrist.write(posmyservoWrist);              
+    delay(25);                       
+  }
+  delay(10000);
+  movimento4();
+}
+
+void movimento4(){
+   for (posmyservoHand = 140; posmyservoHand <= 180; posmyservoHand += 1) {
+    myservoHand.write(posmyservoHand);              
+    delay(25);                       
+  }
+  delay(1000);
+  
+  for (posmyservoHand = 180; posmyservoHand >= 140; posmyservoHand -= 1) { 
+    myservoHand.write(posmyservoHand);              
+    delay(25);                       
+  }
+  delay(1000); 
+}
